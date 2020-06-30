@@ -1,0 +1,58 @@
+.home-wrapper {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.home-left {
+    float: left;
+    margin-left: 15px;
+    padding-top: 30px;
+    width: 625px;
+
+    .banner-img {
+        width: 625px;  
+        height: 270px;
+    }
+}
+
+.home-right {
+    float: right;
+    width: 240px;
+}
+
+.topic-wrapper{
+    padding:20px 0 10px 0;
+    overflow: hidden;
+    // 触发bfc，使高度能够自适应，内部浮动元素也会计算进去，不塌陷
+    margin-left: -18px;
+}
+
+.topic-item{
+    float:left;
+    background:#f7f7f7;
+    height:32px;
+    line-height: 32px;
+    font-size: 14px;
+    border:#bcbcbc 1px solid;
+    border-radius: 4px;
+    padding-right: 10px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+    img{
+        height:32px;
+        width:32px;
+        float: left;
+        margin-right: 10px;
+    }
+}
+.topic-more{
+    float: left;
+    line-height: 32px;
+    height: 32px;
+    margin-left: 18px;
+    &:hover{
+        cursor: pointer;
+        color:grey;
+    }
+}
