@@ -9,10 +9,10 @@ import Detail from "./pages/detail"
 function App() {
   return (
     <Provider store={store}>
-      <Header />
       <BrowserRouter>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/detail" exact component={Detail}></Route>
+        <Header />
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/detail" exact component={Detail}></Route>
       </BrowserRouter>
     </Provider>
 

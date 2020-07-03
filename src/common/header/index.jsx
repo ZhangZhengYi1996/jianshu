@@ -9,14 +9,15 @@ import {
 import { CSSTransition } from "react-transition-group";
 //import * as actionCreators  from "./store/actionCreators";
 import { actionCreators } from "./store";
+import { Link } from "react-router-dom";
 
 
 class Header extends Component {
     getInfoList() {
-        const { focused, list, page, onMouseIn, onMouseLeave ,mouseIn,onChangePage,totalPage} = this.props;
+        const { focused, list, page, onMouseIn, onMouseLeave, mouseIn, onChangePage, totalPage } = this.props;
         const pageList = [];
         const newList = list.toJS();
-        if(newList.length){
+        if (newList.length) {
             for (let i = (page - 1) * 5; i < page * 5; i++) {
                 pageList.push(<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>)
             }
@@ -29,8 +30,8 @@ class Header extends Component {
                 >
                     <SearchInfoTitle>
                         热门搜索
-                        <SearchInfoSwitch onClick={()=>{onChangePage(page,totalPage,this.spinIcon)}}>
-                        <i className="iconfont spin" ref={(icon)=>{this.spinIcon=icon}}>&#xe7e9;</i>
+                        <SearchInfoSwitch onClick={() => { onChangePage(page, totalPage, this.spinIcon) }}>
+                            <i className="iconfont spin" ref={(icon) => { this.spinIcon = icon }}>&#xe7e9;</i>
                             换一批
                         </SearchInfoSwitch>
                     </SearchInfoTitle>
@@ -44,10 +45,13 @@ class Header extends Component {
         }
     }
     render() {
-        const { focused, onInputFocus, onInputBlur ,list} = this.props;
+        const { focused, onInputFocus, onInputBlur, list } = this.props;
         return (
             <HeaderWrapper>
-                <Logo href="/" />
+                <Link to="/">
+                    <Logo />
+                </Link>
+
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载app</NavItem>
@@ -63,7 +67,7 @@ class Header extends Component {
                         >
                             <NavSearch placeholder="搜索"
                                 className={focused ? "focused" : ""}
-                                onFocus={()=>{onInputFocus(list)}}
+                                onFocus={() => { onInputFocus(list) }}
                                 onBlur={onInputBlur}
                             ></NavSearch>
                         </CSSTransition>
@@ -92,14 +96,14 @@ const mapStateToProps = (state) => {
         list: state.get("header").get("list"),
         page: state.get("header").get("page"),
         totalPage: state.get("header").get("totalPage"),
-        mouseIn:state.get("header").get("mouseIn"),
+        mouseIn: state.get("header").get("mouseIn"),
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onInputFocus(list) {
-            list.size===0 && dispatch(actionCreators.getList());
+            list.size === 0 && dispatch(actionCreators.getList());
             dispatch(actionCreators.searchFocus());
         },
         onInputBlur() {
@@ -111,20 +115,20 @@ const mapDispatchToProps = (dispatch) => {
         onMouseLeave() {
             dispatch(actionCreators.mouseLeave())
         },
-        onChangePage(page,totalPage,spin){
-            let origin=spin.style.transform.replace(/\D/g,"");
-            if(origin){
-                origin= 360 + +origin;
-            }else{
-                origin=360;
+        onChangePage(page, totalPage, spin) {
+            let origin = spin.style.transform.replace(/\D/g, "");
+            if (origin) {
+                origin = 360 + +origin;
+            } else {
+                origin = 360;
             }
-            spin.style.transform=`rotate(${origin}deg)`;
-            if(page<totalPage){
-                dispatch(actionCreators.changePage(page+1))
-            }else{
+            spin.style.transform = `rotate(${origin}deg)`;
+            if (page < totalPage) {
+                dispatch(actionCreators.changePage(page + 1))
+            } else {
                 dispatch(actionCreators.changePage(1))
             }
-            
+
         }
     }
 }

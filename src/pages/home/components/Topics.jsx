@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import "../style.scss";
 import { connect } from "react-redux";
-class Topics extends Component {
+class Topics extends PureComponent {
     render() {
         return (
             <div className="topic-wrapper">

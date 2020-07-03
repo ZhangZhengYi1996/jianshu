@@ -1,3 +1,4 @@
+//home结构
 .home-wrapper {
     width: 960px;
     margin: 0 auto;
@@ -11,48 +12,238 @@
     width: 625px;
 
     .banner-img {
-        width: 625px;  
+        width: 625px;
         height: 270px;
     }
 }
 
 .home-right {
     float: right;
-    width: 240px;
+    width: 280px;
+}
+.backtop{
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    border: 1px solid #ccc;
+    right: 0;
+    bottom: 30px;
+    right: 100px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
-.topic-wrapper{
-    padding:20px 0 10px 0;
+//topic
+.topic-wrapper {
+    padding: 20px 0 10px 0;
     overflow: hidden;
     // 触发bfc，使高度能够自适应，内部浮动元素也会计算进去，不塌陷
     margin-left: -18px;
+    border-bottom: 1px solid #dcdcdc;
 }
 
-.topic-item{
-    float:left;
-    background:#f7f7f7;
-    height:32px;
+.topic-item {
+    float: left;
+    background: #f7f7f7;
+    height: 32px;
     line-height: 32px;
     font-size: 14px;
-    border:#bcbcbc 1px solid;
+    border: #bcbcbc 1px solid;
     border-radius: 4px;
     padding-right: 10px;
     margin-left: 18px;
     margin-bottom: 18px;
-    img{
-        height:32px;
-        width:32px;
+
+    img {
+        height: 32px;
+        width: 32px;
         float: left;
         margin-right: 10px;
     }
 }
-.topic-more{
+
+.topic-more {
     float: left;
     line-height: 32px;
     height: 32px;
     margin-left: 18px;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
-        color:grey;
+        color: grey;
+    }
+}
+
+//list
+.list-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+
+    .list-img {
+        width: 125px;
+        height: 100px;
+        float: right;
+        border-radius: 10px;
+    }
+
+}
+.list-loadmore{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #a5a5a5;
+    border-radius: 20px;
+    color: #fff;
+    margin: 30px 0;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.list-info {
+    width: 500px;
+    float: left;
+
+    .list-info-title {
+        font-size: 18px;
+        line-height: 27px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .list-info-desc {
+        font-size: 13px;
+        line-height: 24px;
+        color: #999;
+
+    }
+
+    .list-info-more {
+        overflow: hidden;
+        color: 999;
+        font-size: 13px;
+        line-height: 24px;
+
+        p {
+            float: left;
+            margin-right: 20px;
+            color: #999;
+
+            i {
+                margin-right: 2px;
+                font-size: 13px;
+
+            }
+        }
+
+        .list-info-more-author {
+            cursor: pointer;
+        }
+
+        .list-info-more-diamond {
+            color: red;
+        }
+
+    }
+}
+
+//recommend
+.recommend-wrapper {
+    margin: 30px 0;
+    width: 280px;
+}
+
+.recommend-item {
+    width: 280px;
+    height: 50px;
+    cursor: pointer;
+}
+
+//download
+.download-wrapper {
+    box-sizing: border-box;
+    width: 280px;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    padding: 7px 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.download-qr {
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+
+.download-info {
+    height: 50px;
+    float: left;
+    margin: 5px 5px;
+
+    .download-info-title {
+        font-size: 20px;
+    }
+
+    .download-info-desc {
+        font-size: 14px;
+        color: #959393;
+        padding-top: 10px;
+    }
+}
+
+//writer
+.writer-wrapper {
+    width: 280px;
+    overflow: hidden;
+}
+
+.writer-header {
+    //height: 20px;
+    width: 280px;
+    color: #969696;
+    font-size: 14px;
+    overflow: hidden;
+
+    .writer-header-recommend {
+        float: left;
+    }
+
+    .writer-header-change {
+        float: right;
+    }
+}
+
+.writer-item {
+    overflow: hidden;
+    width: 280px;
+    margin-top: 10px;
+    font: 14px;
+
+    .writer-item-img {
+        float: left;
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+    }
+
+    .writer-item-info {
+        float: left;
+        margin-left: 20px;
+        margin-top: 8px;
+        .writer-item-info-plus {
+            padding-left:100px ;
+            color: green;
+        }
+
+        .writer-item-info-desc {
+            font-size: 12px;
+           margin-top: 8px;
+            color: #969696;
+        
+        }
     }
 }

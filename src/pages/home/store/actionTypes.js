@@ -1,0 +1,3 @@
+export const CHANGE_HOME_LIST="home/CHANGE_HOME_LIST";
+export const ADD_MORE_LIST="home/ADD_MORE_LIST";
+export const CHANGE_SCROLL_SHOW="home/CHANGE_SCROLL_SHOW";

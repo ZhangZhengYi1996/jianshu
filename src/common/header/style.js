@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.div `
       position: relative;
 `
 
-export const Logo = styled.a `
+export const Logo = styled.div `
         height:56px;
         position: absolute;
         display: block;
@@ -103,6 +103,7 @@ position : absolute;
     width:240px;
     padding:0 20px;
     box-shadow:0 0 8px rgba(0,0,0,.2);
+    background:white;
 `
 
 export const SearchInfoTitle= styled.div`
