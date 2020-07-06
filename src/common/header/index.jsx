@@ -7,6 +7,7 @@ import {
     SearchInfoSwitch, SearchInfoItem
 } from "./style";
 import { CSSTransition } from "react-transition-group";
+import {actionCreators as loginActionCreators } from "../../pages/login/store";
 //import * as actionCreators  from "./store/actionCreators";
 import { actionCreators } from "./store";
 import { Link } from "react-router-dom";
@@ -45,7 +46,7 @@ class Header extends Component {
         }
     }
     render() {
-        const { focused, onInputFocus, onInputBlur, list } = this.props;
+        const { focused, onInputFocus, onInputBlur, list ,login,logOut} = this.props;
         return (
             <HeaderWrapper>
                 <Link to="/">
@@ -55,7 +56,11 @@ class Header extends Component {
                 <Nav>
                     <NavItem className="left active">首页</NavItem>
                     <NavItem className="left">下载app</NavItem>
-                    <NavItem className="right">登录</NavItem>
+                    {
+                        login? <NavItem className="right" onClick={logOut}>退出</NavItem>:
+                        <Link to="/login"><NavItem className="right">登录</NavItem></Link>
+                    }
+                    
                     <NavItem className="right">
                         <i className="iconfont">&#xe636;</i>
                     </NavItem>
@@ -76,10 +81,12 @@ class Header extends Component {
                     </SearchWrapper>
 
                     <Addition>
+                        <Link to="/write">
                         <Button className="write">
                             <i className="iconfont">&#xe708;</i>
                         写文章
                         </Button>
+                        </Link>
                         <Button className="reg">注册</Button>
                     </Addition>
                 </Nav>
@@ -97,6 +104,7 @@ const mapStateToProps = (state) => {
         page: state.get("header").get("page"),
         totalPage: state.get("header").get("totalPage"),
         mouseIn: state.get("header").get("mouseIn"),
+        login:state.getIn(["login","login"])
     }
 }
 
@@ -129,6 +137,9 @@ const mapDispatchToProps = (dispatch) => {
                 dispatch(actionCreators.changePage(1))
             }
 
+        },
+        logOut(){
+            dispatch(loginActionCreators.logOut())
         }
     }
 }
